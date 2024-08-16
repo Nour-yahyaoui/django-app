@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Page</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5; /* Facebook's signature blue-gray background */
+    }
+    nav {
+        height: 10vh;
+        background-color: rgb(19, 119, 201);
+        margin: 0;
+        padding: 10px;
+        max-width: 800px;
+        margin: auto;
+    }
+    nav ul {
+        display: flex;
+        padding-top: 10px;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-grow: 0;
+        flex-wrap: nowrap;
+    }
+    nav ul li {
+        list-style: none;
+    }
+    nav ul li a {
+        color: white;
+        font-size: 1.25rem;
+        text-decoration: none;
+
+    }
+
+    /* Account Container */
+    .account-container {
+      max-width: 800px;
+      margin: 0px auto;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #d8d8d8;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Account Header */
+    .account-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .account-header .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .account-header .account-info {
+      flex: 1;
+    }
+
+    .account-header .account-info h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .account-header .account-info p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* FR Section */
+    .fr-section {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .fr-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Posts Section */
+    .posts-section {
+      margin-bottom: 20px;
+    }
+
+    .posts-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Post */
+    .post {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .post .post-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .post .post-header .author-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post .post-header .author-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .post .post-content {
+      font-size: 1.05rem;
+      margin-top: 50px !important;
+      margin-bottom: 50px !important ;
+      color: #666;
+    }
+
+    .post .post-content img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      margin-top: 40px;
+    }
+
+    /* Comments Section */
+    .comments-section {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .comments-section h5 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .fr-section {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+       
+    }
+    .under-profile {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+
+    }
+    .friend {
+        width: 100px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .friend img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        margin: auto  !important;
+    }
+    .fr {
+       width: 100%;
+    }
+    .galery {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      flex: 1;
+      display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     gap: 10px;
+    border: 1px solid #ddd;
+    }
+    .galery img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10%;
+        border: solid 1px gainsboro;
+        margin: auto  !important;
+    }
+    .gal {
+        flex:1; 
+    }
+    .pict {
+        width: 100px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    footer {
+        max-width:800px;
+        background-color: rgb(19, 119, 201);
+        margin: 0;
+        height: 10vh;
+        margin: auto;
+    }
+    .message-header img {
+        width: 150px;
+        height: 150px;
+        border-radius: 30px;
+        margin: auto;
+        
+    }
+    .message-header h1 {
+        margin-bottom: 100px;
+    }
+    form {
+      max-width: 800px;
+      background: #0000001f;
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 200px;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    form  input[type="submit"] {
+      width: 40%;
+      height: 30px;
+      border-radius: 20px;
+      border: none;
+      background: #000;
+      color: white;
+      font-weight: 750;
+    }
+    form  textarea  {
+      border: none;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 60%;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    form textarea:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <a href="{% url 'home' %}">home</a></li>
+            <li> <a href="{% url 'friends' %}">friends</a></li>
+            <li ><a href="{% account.html %}">account</a></li>
+            <li> <a href="{% url 'logout' }">logout</a></li>
+        </ul>
+    </nav>
+  <div class="account-container">
+    <div class="message-header" style="margin: auto !important;display: flex; flex-direction: column;gap: 20px;justify-content: space-evenly; border:none;padding: 10px;height:auto;text-align: center;">
+
+      <img src="" alt="Profile Picture" class="profile-picture">
+      <div class="account-info">
+        <h2> contact {{friend.name}}</h2>
+      </div>
+    </div>
+    <div class="messages-zone" style="padding: 20px;color: gray; gap: 20px;display: flex ; flex-direction: column;">
+      {%for message in messages%}
+      {%if sender == user.name%}
+      <div class="writed-message" style="color:white;background-color: #173bcae0; border-radius: 20px; max-width: 80%; padding: 20px;align-self: flex-end;">
+        <p>content: emo perferendis perspiciatis aperiam repellendus nulla vitae?</p>
+    </div>
+    {%else %}
+        <div class="sended-message" style="color:white;background-color: #070707; border-radius: 20px; max-width: 80%; padding: 20px;align-self: flex-start;">
+            <p>content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolores ducimus porro velit nemo perferendis perspiciatis aperiam repellendus nulla vitae?</p>
+        </div>      
+  {%endfor%}
+
+    </div>
+        <form action="{% url 'add_message' %}" method="post">
+          {% csrf_token%}
+            <textarea name="msg" id="msg" rows="4"></textarea>
+            <input type="submit" value="send">
+            
+        </form>
+        
+    

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Page</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5; /* Facebook's signature blue-gray background */
+    }
+    nav {
+        height: 10vh;
+        background-color: rgb(19, 119, 201);
+        margin: 0;
+        padding: 10px;
+        max-width: 800px;
+        margin: auto;
+    }
+    nav ul {
+        display: flex;
+        padding-top: 10px;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-grow: 0;
+        flex-wrap: nowrap;
+    }
+    nav ul li {
+        list-style: none;
+    }
+    nav ul li a {
+        color: white;
+        font-size: 1.25rem;
+        text-decoration: none;
+
+    }
+
+    /* Account Container */
+    .account-container {
+      max-width: 800px;
+      margin: 0px auto;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #d8d8d8;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Account Header */
+    .account-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .account-header .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .account-header .account-info {
+      flex: 1;
+    }
+
+    .account-header .account-info h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .account-header .account-info p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* FR Section */
+    .fr-section {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .fr-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Posts Section */
+    .posts-section {
+      margin-bottom: 20px;
+    }
+
+    .posts-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Post */
+    .post {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .post .post-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .post .post-header .author-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post .post-header .author-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .post .post-content {
+      font-size: 1.05rem;
+      margin-top: 50px !important;
+      margin-bottom: 50px !important ;
+      color: #666;
+    }
+
+    .post .post-content img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      margin-top: 40px;
+    }
+
+    /* Comments Section */
+    .comments-section {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .comments-section h5 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .fr-section {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+       
+    }
+    .under-profile {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+
+    }
+    .friend {
+        width: 100px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .friend img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        margin: auto  !important;
+    }
+    .fr {
+       width: 100%;
+    }
+    .galery {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      flex: 1;
+      display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     gap: 10px;
+    border: 1px solid #ddd;
+    }
+    .galery img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10%;
+        border: solid 1px gainsboro;
+        margin: auto  !important;
+    }
+    .gal {
+        flex:1; 
+    }
+    .pict {
+        width: 100px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    footer {
+        max-width:800px;
+        background-color: rgb(19, 119, 201);
+        margin: 0;
+        height: 10vh;
+        margin: auto;
+    }
+    .invitations {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .invitation {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background-color: #66666627;
+        border-radius: 20px;
+        padding: 10px;
+        height: auto;
+    }
+    .invitation .button {
+        width: 40%;
+    }
+    .button {
+        border-radius: 12px;
+        border: none;
+        padding: 10px 30px ;
+        margin: 10px;
+        color: white;
+        font-weight: 750;
+
+    }
+    .friends {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .friend {
+    background-color: #66666627;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 90%;
+}
+   
+    .friend img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        margin-right: auto;
+    }
+    footer {
+        margin-top: 100px;
+    }
+    #invits {
+        width: 150px;
+        height: 40px;
+        border: none;
+        color: white;
+        background-color: #1d6ddc;
+        border-radius: 20px;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    #friendss {
+        width: 150px;
+        height: 40px;
+        border: none;
+        color: white;
+        background-color: #1d6ddc;
+        border-radius: 20px;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    .data p {
+        font-weight: 750;
+        font-size: 20px;
+        color: #666;
+        margin: 20px 0;
+    }
+    .invitation h3 {
+        color: #666;
+        margin: 20px 2px;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <a  href="{% url 'home'%}">home</a></li>
+            <li> <a href="{% url 'friends'%}" style="color: rgb(115, 169, 250);">friends</a></li>
+            <li ><a href="{% url 'account'%}">account</a></li>
+            <li> <a href="{% url 'logout' %}">logout</a></li>
+        </ul>
+    </nav>
+  <div class="account-container">
+
+<div class="container" id="invitations" style="display: none; margin: auto;padding: 20px;" >
+    <div class="data">
+    <button id="friendss" onclick="frr()">see friends</button>
+</div>
+<h2 style="margin: 30px;text-transform: uppercase; font-weight: 750; color: gray;">invtations</h2>
+<div class="invitations">
+    {% for invitation in invitations%}
+    <div class="invitation"> 
+        <h3>{{invitation.sender}} wants to be your friend</h3>
+        <div class="acc-dele">
+
+              <a class="button" style="background-color: rgb(20, 143, 89);">accept</a><a class="button" style="background-color: rgb(212, 38, 44);">delete</a>
+    
+        </div>        
+    </div>
+    {%endfor%}
+</div>
+</div>
+<div class="container" id="friends" >
+    <div class="data" style="margin: 20px;">
+    <button id="invits" onclick="invv()">see invitation</button>
+    <h2 style="margin: 30px;text-transform: uppercase; font-weight: 750; color: gray;">friends</h2>
+    <p>click at friend name to contact</p>
+    </div>
+    <div class="friends">
+        {% for friend in friends%}
+        <div class="friend">
+            <img src="" alt="">
+            <a href="{% url 'message' friend.name %}">{{friend.name}}</a>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<footer>
+</footer>
+<script>
+
+    fr = document.getElementById('friendss')
+    fr_class = document.getElementById('friends')
+    inv = document.getElementById('invits')
+    inv_class = document.getElementById('invitations')
+
+    function frr() {
+        inv_class.style.display = 'none';
+        fr_class.style.display = 'grid';
+    }
+    function invv() {
+        fr_class.style.display = 'none';
+        inv_class.style.display = 'grid';
+    }
+</script>
+</body>
+</html>

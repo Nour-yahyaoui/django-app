@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Page</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5; /* Facebook's signature blue-gray background */
+    }
+    nav {
+        height: 10vh;
+        background-color: rgb(19, 119, 201);
+        margin: 0;
+        padding: 10px;
+        max-width: 800px;
+        margin: auto;
+    }
+    nav ul {
+        display: flex;
+        padding-top: 10px;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-grow: 0;
+        flex-wrap: nowrap;
+    }
+    nav ul li {
+        list-style: none;
+    }
+    nav ul li a {
+        color: white;
+        font-size: 1.25rem;
+        text-decoration: none;
+
+    }
+
+    /* Account Container */
+    .account-container {
+      max-width: 800px;
+      margin: 0px auto;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #d8d8d8;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Account Header */
+    .account-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .account-header .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .account-header .account-info {
+      flex: 1;
+    }
+
+    .account-header .account-info h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .account-header .account-info p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* FR Section */
+    .fr-section {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .fr-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Posts Section */
+    .posts-section {
+      margin-bottom: 20px;
+    }
+
+    .posts-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Post */
+    .post {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .post .post-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .post .post-header .author-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post .post-header .author-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .post .post-content {
+      font-size: 1.05rem;
+      margin-top: 50px !important;
+      margin-bottom: 50px !important ;
+      color: #666;
+    }
+
+    .post .post-content img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      margin-top: 40px;
+    }
+
+    /* Comments Section */
+    .comments-section {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .comments-section h5 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .fr-section {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+       
+    }
+    .under-profile {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+
+    }
+    .friend {
+        width: 100px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .friend img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        margin: auto  !important;
+    }
+    .fr {
+       width: 100%;
+    }
+    .galery {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      flex: 1;
+      display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     gap: 10px;
+    border: 1px solid #ddd;
+    }
+    .galery img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10%;
+        border: solid 1px gainsboro;
+        margin: auto  !important;
+    }
+    .gal {
+        flex:1; 
+    }
+    .pict {
+        width: 100px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    footer {
+        max-width:800px;
+        background-color: rgb(19, 119, 201);
+        margin: 0;
+        height: 10vh;
+        margin: auto;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+            <ul>
+              <li> <a href="{% url 'home' %}">home</a></li>
+              <li> <a href="{% url 'friends' %}">friends</a></li>
+              <li ><a href="{% account.html %}" style="color: rgb(115, 169, 250);">account</a></li>
+              <li> <a href="{% url 'logout' }">logout</a></li>
+          </ul>
+  
+    </nav>
+  <div class="account-container">
+    <div class="account-header">
+      <img src="" alt="Profile Picture" class="profile-picture">
+      <div class="account-info">
+        <h2>{{user.name}}</h2>
+        <p style="font-family: cursive; text-decoration: underline">{{user.bio}}</p>
+      </div>
+    </div>
+    <div class="under-profile">
+
+    <div class="fr">
+    <h3 style="margin: 30px;">Friends</h3>
+    <div class="fr-section">
+    {% for friend in friends %}
+
+      <div class="friend">
+        <img src="" alt="">
+        <h5>{{friend.name}}</h2>
+      </div>
+      {%endfor%}
+    </div>
+</div>
+<div class="gal">
+    <h3 style="margin: 30px;">Galery</h3>
+    <div class="galery">
+      {% for img in images}
+        <div class="pict">
+        <img src="" alt="">
+        <h5><a>see img</a></h5>
+        </div>
+        {%endfor%}
+
+    </div>
+</div>
+</div>
+
+<div class="container">
+<h3 style="margin: 30px;">Posts</h3>
+{% for post in posts}
+<div class="posts-section">
+      <div class="post">
+        <div class="post-header">
+          <img src="c:\Users\user\Downloads\avatarr.png" alt="Author Picture" class="author-picture">
+          <span class="author-name">John Doe </span>
+          <span><a href="#" style="margin-left: 20px !important;">12/12/1920</a></span>
+        </div>
+        <div class="post-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et quis minus laborum, vero eius quia illum accusamus ducimus provident natus!</p>
+          <img src="C:\Users\user\Downloads\city-1" alt="Post Picture">
+        </div>
+        <div class="comments-section">
+          <h5>Comments</h5>
+          <!-- empty for now -->
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+ 
+
+  </div>
+  
+</div>
+<footer>
+   
+</footer>
+</body>
+</html>
